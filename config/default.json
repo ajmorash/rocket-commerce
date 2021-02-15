@@ -1,0 +1,3 @@
+{
+  "mongoURI": "mongodb+srv://ajmorash:beinthisplace@cluster0.0purk.mongodb.net/rocket-commerce?retryWrites=true&w=majority"
+}
