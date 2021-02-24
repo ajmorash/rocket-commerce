@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+const ObjectID = require('mongodb').ObjectID;
+
 const Product = require('../../models/Product');
 
 router
@@ -8,25 +10,33 @@ router
   Product.find()
   .then(products => res.status(200).json(products));
 })
+.get('/:id', (req,res) => {
+  Product.findById(req.params.id)
+  .then(product => res.status(200).json(product));
+})
 .post('/', (req, res) => {
-  // if(req.body.id){
-  //
-  // }
 
-  const newProduct = new Product({
-    name: req.body.name,
-    price: req.body.price,
-    quantity: req.body.quantity,
-    description: req.body.description,
-    imageURL: req.body.imageURL,
-    height: req.body.height,
-    length: req.body.length,
-    width: req.body.width,
-    weight: req.body.weight
-  })
+  const newProduct = new Product(req.body);
 
   newProduct.save()
-    .then(product => res.json(product));
+    .then(product => res.json(product))
+    .catch(err => res.json(err));
+
+
+})
+.post('/:id', (req,res) => {
+
+  const id = (req.params.id ? ObjectID(req.params.id) : ObjectID(0));
+
+  const productDetails = req.body;
+
+  Product.updateOne(
+    { _id: id},
+    productDetails,
+    {}
+  )
+    .then(product => res.json(product))
+    .catch(err => res.json(err));
 })
 .delete('/:id', (req, res) => {
   Product.findById(req.params.id)

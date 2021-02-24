@@ -13,27 +13,38 @@ const ProductSchema = new Schema({
     required: true
   },
   quantity: {
-    type: Number
+    type: Number,
+    required: true
   },
   description: {
-    type: String
+    type: String,
+    default: ""
   },
-  ImageURL: {
-    type: String
+  imageURL: {
+    type: String,
+    default: ""
   },
   height: {
-    type: Number
+    type: Number,
+    default: 0
   },
   length: {
-    type: Number
+    type: Number,
+    default: 0
   },
   width: {
-    type: Number
+    type: Number,
+    default: 0
   },
   weight: {
-    type: Number
+    type: Number,
+    default: 0
   },
-  date_added: {
+  isActive: {
+    type: Boolean,
+    default: true
+  },
+  created_date: {
     type: Date,
     default: Date.now
   }

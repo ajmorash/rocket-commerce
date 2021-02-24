@@ -21,10 +21,11 @@ mongoose
     useUnifiedTopology: true
   })
   .then(() => console.log('Mongo DB Connected'))
-  .catch(err => console.log(err))
+  .catch(err => console.log(err));
 
 //Use Routes
 app.use('/api/products', require('./api/routes/Products.js'));
+app.use('/api/orders', require('./api/routes/Orders.js'));
 
 const port = process.env.PORT || 5000
 

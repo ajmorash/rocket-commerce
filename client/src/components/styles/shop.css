@@ -1,0 +1,19 @@
+.shop {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+  font-family: Helvetica, sans-serif;
+}
+.shop-tile{
+  background-color: #F5F5F5;
+  border: 1px solid #ccc;
+  padding: 1em;
+
+  transition: box-shadow .3s;
+}
+.shop-tile:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+.shop-tile-name {
+  margin: 1em 0 ;
+}
