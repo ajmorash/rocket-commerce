@@ -1,4 +1,4 @@
-import { GET_CART, ADD_TO_CART, CLEAR_CART } from '../actions/types.js';
+import { GET_CART, ADD_TO_CART, REMOVE_FROM_CART, CLEAR_CART } from '../actions/types.js';
 import { clone } from 'lodash';
 
 const initialState = {
@@ -16,8 +16,7 @@ export function cartReducer(state = initialState, action){
       var updatedCart = [];
       var itemAlreadyAdded = false;
       var newItem = clone(action.payload.product);
-      newItem.quantity = action.payload.quantity;
-      console.log(newItem);
+      newItem.reservedQuantity = action.payload.quantity;
 
       state.cart.forEach(item => {
         if(item._id == newItem._id){
@@ -38,13 +37,15 @@ export function cartReducer(state = initialState, action){
         updatedCart = [newItem, ...state.cart]
       }
 
-      console.log(state.cart);
-      console.log(action.payload);
-      console.log(updatedCart);
       return {
         ...state,
         cart: updatedCart
       }
+    case REMOVE_FROM_CART:
+      return {
+        ...state,
+        cart: state.cart.filter(product => product._id !== action.payload.id)
+      };
     case CLEAR_CART:
       return {
         ...state,

@@ -2,3 +2,8 @@
   display:grid;
   grid-template-columns: 2fr 1fr;
 }
+.left-column{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { getProduct } from '../actions/productDetailsActions';
 import { addToCart } from '../actions/cartActions';
+import { Link } from 'react-router-dom';
 import './styles/productDetails.css';
 
 function ProductDetails(props) {
@@ -9,10 +10,13 @@ function ProductDetails(props) {
   const [reservedQuantity, setReservedQuantity] = useState(0);
 
   const onChange = (e) => {
-    if(props.productDetails.productDetails.quantity >= e.target.value){
+    if(e.target.value < 0){
+      setReservedQuantity(0);
+    }
+    else if(props.productDetails.productDetails.quantity >= e.target.value){
       setReservedQuantity(e.target.value);
     }
-    if(props.productDetails.productDetails.quantity < e.target.value){
+    else if(props.productDetails.productDetails.quantity < e.target.value){
       setReservedQuantity(props.productDetails.productDetails.quantity);
     }
   }
@@ -60,9 +64,13 @@ function ProductDetails(props) {
             onChange={onChange}
             />
 
-          <a onClick={addToCart} href='#'>
+          <button className='add-to-cart' onClick={addToCart}>
             Add to Cart
-          </a>
+          </button>
+          <br />
+          <Link className = 'back-to-shop' to='/'>
+            <button>Back To Shop</button>
+          </Link><br />
         </div>
 
       </div>

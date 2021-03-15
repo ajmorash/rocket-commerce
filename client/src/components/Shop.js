@@ -17,23 +17,22 @@ function Shop(props) {
     console.log(props.product.products);
     shopTiles = props.product.products.map((product) =>
       (
-        <div>
-          <Link to={`/products/${product._id}`}>
-            <div key={product._id} className='shop-tile'>
-              <div className='shop-tile-image'>
-                <img src={product.imageURL} />
+        <Link to={`/products/${product._id}`}>
+          <div key={product._id} className='shop-tile'>
+            <div className='shop-tile-image'>
+              <img src={product.imageURL} />
+            </div>
+            <div className='shop-tile-details'>
+              <div className='shop-tile-name'>
+                <strong>{product.name}</strong>
               </div>
-              <div className='shop-tile-details'>
-                <div className='shop-tile-name'>
-                  <strong>{product.name}</strong>
-                </div>
-                <div className='shop-tile-price'>
-                  ${product.price.toFixed(2)}
-                </div>
+              <div className='shop-tile-price'>
+                ${product.price.toFixed(2)}
               </div>
             </div>
-          </Link>
-        </div>
+          </div>
+        </Link>
+
       )
     );
   }
@@ -41,7 +40,10 @@ function Shop(props) {
 
   return(
     <div className='shop'>
-      {shopTiles}
+      <h1 className='shop-title'>World Class Kazoos at East Coast Prices</h1>
+      <div className='shop-tiles-container'>
+        {shopTiles}
+      </div>
     </div>
   );
 

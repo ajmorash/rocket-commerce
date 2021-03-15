@@ -6,6 +6,7 @@ import store from './store.js';
 import ProductDetails from './components/ProductDetails.js';
 import Shop from './components/Shop';
 import NavBar from './components/NavBar';
+import Checkout from './components/Checkout';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Switch>
               <Route path='/' exact component={Shop} />
               <Route path='/products/:id' component={ProductDetails} />
+              <Route path='/checkout' component={Checkout} />
             </Switch>
           </div>
       </Provider>

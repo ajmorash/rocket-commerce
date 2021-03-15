@@ -1,15 +1,48 @@
-.shop {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1em;
-  font-family: Helvetica, sans-serif;
+@media only screen and (max-width: 768px){
+    .shop-tiles-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 1em;
+      font-family: Helvetica, sans-serif;
+    }
+  }
+
+@media only screen and (min-width: 768px){
+    .shop-tiles-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 1em;
+      font-family: Helvetica, sans-serif;
+    }
+  }
+  @media only screen and (min-width: 1200px){
+    .shop-tiles-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1em;
+    font-family: Helvetica, sans-serif;
+  }
+}
+.shop-title{
+  text-align: center;
+}
+.shop-tile-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .shop-tile{
   background-color: #F5F5F5;
   border: 1px solid #ccc;
   padding: 1em;
-
   transition: box-shadow .3s;
+}
+a, a:link, a:visited, a:focus, a:hover, a:active{
+  text-decoration:none;
+  color: #444;
+}
+.shop-tile-name{
+  color:#111
 }
 .shop-tile:hover {
   box-shadow: 0 0 11px rgba(33,33,33,.2);
