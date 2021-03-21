@@ -7,6 +7,7 @@ import ProductDetails from './components/ProductDetails.js';
 import Shop from './components/Shop';
 import NavBar from './components/NavBar';
 import Checkout from './components/Checkout';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
               <Route path='/' exact component={Shop} />
               <Route path='/products/:id' component={ProductDetails} />
               <Route path='/checkout' component={Checkout} />
+              <Route path='/login' component={Login} />
             </Switch>
           </div>
       </Provider>

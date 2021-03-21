@@ -1,6 +1,8 @@
 # Rocket Commerce
 
-Minimal E-Commerce site built using MERN Stack.
+Minimal E-Commerce site built using MERN Stack. 
+
+A lot of the code is based off of a MERN Stack course created by Brad Traversy (https://github.com/bradtraversy/mern_shopping_list)
 
 ## Getting Started
 
@@ -51,4 +53,3 @@ No Tests have been written yet
 
 * **Alexander Morash** - (https://github.com/ajmorash) - (https://www.linkedin.com/in/alexander-morash/)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.

@@ -1,4 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://ajmorash:beinthisplace@cluster0.0purk.mongodb.net/rocket-commerce?retryWrites=true&w=majority",
-  "jwtSecret": "C292B6C1F155BA2F633AFD259E68C43E2CCB5E4230D17BD7E904719558AFDFB4"
+  "mongoURI": "put your mongo URI Here",
+  "jwtSecret": "put your JWT secret here"
 }

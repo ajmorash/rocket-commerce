@@ -62,9 +62,10 @@ function ProductDetails(props) {
             type='number'
             value={reservedQuantity}
             onChange={onChange}
+            id='product-details-input'
             />
 
-          <button className='add-to-cart' onClick={addToCart}>
+          <button className='add-to-cart' id='add-to-cart' onClick={addToCart}>
             Add to Cart
           </button>
           <br />

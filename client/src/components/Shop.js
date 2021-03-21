@@ -18,7 +18,7 @@ function Shop(props) {
     shopTiles = props.product.products.map((product) =>
       (
         <Link to={`/products/${product._id}`}>
-          <div key={product._id} className='shop-tile'>
+          <div key={product._id} className='shop-tile' id={product._id}>
             <div className='shop-tile-image'>
               <img src={product.imageURL} />
             </div>

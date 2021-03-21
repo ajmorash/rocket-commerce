@@ -2,17 +2,18 @@ const express = require('express');
 const router = express.Router();
 const Order = require('../../models/Order');
 const Product = require('../../models/Product');
+const auth = require('../../middleware/auth');
 
 const ObjectID = require('mongodb').ObjectID;
 
 
 router
-  .get('/', (req, res) => {
+  .get('/', auth, (req, res) => {
     Order.find()
       .then(orders => res.status(200).json(orders))
       .catch(err => res.json(err));
   })
-  .post('/', (req, res) => {
+  .post('/', auth, (req, res) => {
     const newOrder = new Order(req.body);
     const validOrder = validateOrder(newOrder.products);
 

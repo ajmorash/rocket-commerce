@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../../middleware/auth');
 
 const ObjectID = require('mongodb').ObjectID;
 
@@ -14,7 +15,7 @@ router
   Product.findById(req.params.id)
   .then(product => res.status(200).json(product));
 })
-.post('/', (req, res) => {
+.post('/', auth, (req, res) => {
 
   const newProduct = new Product(req.body);
 
@@ -24,7 +25,7 @@ router
 
 
 })
-.post('/:id', (req,res) => {
+.post('/:id', auth, (req,res) => {
 
   const id = (req.params.id ? ObjectID(req.params.id) : ObjectID(0));
 

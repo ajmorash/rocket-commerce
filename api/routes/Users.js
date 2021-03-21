@@ -14,6 +14,8 @@ const User = require('../../models/User');
 router.post('/', async (req, res) => {
   const { name, email, password, admin } = req.body;
 
+  console.log('here');
+
   if(!name || !email || !password || !admin){
     return res.status(400).json({msg: 'please enter all fields'});
   }

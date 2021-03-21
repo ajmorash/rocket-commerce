@@ -36,18 +36,19 @@ function CheckoutItem({item, removeFromCart, addToCart}){
 
     return (
       <div className = 'cart-row'>
-        <div>{item.name}</div>
-        <div>{item.price}</div>
+        <div className='cart-item-name'>{item.name}</div>
+        <div className='cart-item-price'>{item.price}</div>
         {
           editToggle ?
           <input
+            className = 'cart-item-quantity-input'
             type='number'
             value={reservedQuantity}
             onChange={onChange}
             />
-          : <div>{reservedQuantity}</div>
+          : <div className = 'cart-item-quantity'>{reservedQuantity}</div>
         }
-        <button onClick={() => {editQuantity(item._id)}}>
+        <button className = 'cart-item-edit-quantity' onClick={() => {editQuantity(item._id)}}>
           {editToggle ?
             "Save"
             : "Edit Quantity"
@@ -55,7 +56,7 @@ function CheckoutItem({item, removeFromCart, addToCart}){
 
 
         </button>
-        <button onClick={() => {removeItem(item._id)}}> Remove Item </button>
+        <button className = 'cart-item-remove' onClick={() => {removeItem(item._id)}}> Remove Item </button>
       </div>
     )
 }
